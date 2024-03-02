@@ -20,7 +20,7 @@ const Navbar = () =>{
             </ul>
             <div className="nav_login_cart">
                  <Link to='/loginsignup'><button>Login</button></Link>
-                 <Link to='/cart'><img src={cart_icon} alt="cart" /></Link>
+                 <Link to='/cart'><img src={cart_icon} alt="carts" /></Link>
                 <div className="nav_cart_count">0</div>
             </div>
         </div>
