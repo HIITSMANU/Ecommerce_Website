@@ -1,4 +1,4 @@
-.popular{
+.new_collection{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -7,23 +7,25 @@
     height: 90vh;
     margin: 0px auto;
     margin-left: 80px;
+    /* margin-top: 80px; */
     /* text-align: center; */
     
 }
-.popular h1{
+.new_collection h1{
     font-size: 40px;
     font-weight: 600;
     color: rgb(54, 53, 53);
+    margin-top: 40px;
 }
-.popular hr{
+.new_collection hr{
     width: 200px;
-    height: 4px;
+    height: 10px;
     border-radius: 10px;
     background: rgb(11, 11, 11);
 }
-.popular_item{
-
-    display: flex;
-    margin-top: 40px;
-    /* gap: 20px; */
+.collections{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    margin-top: 30px;
+    gap: 20px;
 }

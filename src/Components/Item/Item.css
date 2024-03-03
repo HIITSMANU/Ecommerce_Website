@@ -1,12 +1,15 @@
 .item{
-    width: 350px;
+    width: 300px;
 }
 .item p{
     margin: 6px 0px;
+    font-size: 14px;
+    width: 260px;
 }
 .item_prices{
     display: flex;
     gap: 19px;
+    text-align: center;
 }
 .item_prices_new{
     font-size: 20px;
