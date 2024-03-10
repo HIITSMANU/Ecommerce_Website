@@ -1,0 +1,6 @@
+.bread{
+    display: flex;
+    margin: 40px 170px;
+    color: black;
+    gap: 10px;
+}

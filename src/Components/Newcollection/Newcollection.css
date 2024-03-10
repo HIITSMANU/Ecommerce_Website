@@ -4,11 +4,12 @@
     justify-content: center;
     flex-direction: column;
     /* gap:10px; */
-    height: 90vh;
+    height: 100%;
     margin: 0px auto;
     margin-left: 80px;
     /* margin-top: 80px; */
     /* text-align: center; */
+    margin-bottom: 50px;
     
 }
 .new_collection h1{

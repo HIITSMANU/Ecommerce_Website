@@ -1,8 +1,14 @@
-.Navbar{
+.Navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     display: flex;
     justify-content: space-around;
-    padding: 15px;
+    padding: 5px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background: white; /* Set a background color for the navbar */
+    z-index: 1000; /* Set a high z-index to ensure it appears above other content */
 }
 .nav_logo{
     display: flex;
@@ -62,3 +68,4 @@
     border: 2px solid black;   
 
 }
+
