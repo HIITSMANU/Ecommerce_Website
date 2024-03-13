@@ -7,8 +7,8 @@
     justify-content: space-around;
     padding: 5px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    background: white; /* Set a background color for the navbar */
-    z-index: 1000; /* Set a high z-index to ensure it appears above other content */
+    background: white;
+    z-index: 1000; 
 }
 .nav_logo{
     display: flex;

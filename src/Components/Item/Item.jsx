@@ -4,7 +4,7 @@ import "./Item.css"
 const Item = (props) =>{
     return(
         <div className="item">
-            <Link to={`/product/${props.id}`}><img src={props.image} width={250} alt="" /></Link>
+            <Link to={`/product/${props.id}`}><img onClick={window.scrollTo(0,0)} src={props.image} width={250} alt="" /></Link>
             <p>{props.name}</p>
             <div className="item_prices">
                 <div className="item_prices_new">${props.new_price}</div>
