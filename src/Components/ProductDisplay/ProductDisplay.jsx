@@ -1,11 +1,30 @@
 import React, { useContext } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import star_icon from "../Assets/star_icon.png"
 import star_dull_icon from "../Assets/star_dull_icon.png"
 import "./ProductDisplay.css"
 import { ShopContext } from "../../Context/Context";
+
 const ProductDisplay = (props) =>{
     const {product} = props
     const {addTocart} = useContext(ShopContext)
+
+    const notify = () => toast.success('Item added to the cart', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+    });
+
+    const handleAddToCart = (productId) => {
+        addTocart(productId);
+        notify(); // Show toast when item is added to the cart
+    };
+
     return(
         <div className="product_display">
             <div className="product_display_left">
@@ -47,11 +66,12 @@ const ProductDisplay = (props) =>{
                     <div>XXXL</div>
                 </div>
             </div>
-            <button onClick={()=>{addTocart(product.id)}}>Add to Cart</button>
+            <button onClick={()=> handleAddToCart(product.id)}>Add to Cart</button>
             <p className="product_choose_category"><span>Category : </span>{product.category} , {product.name}</p>
             <p className="product_choose_category"><span>Tags :</span>Modern , Latest</p>
         </div>
+        <ToastContainer />
         </div>
     )
 }
-export default ProductDisplay
+export default ProductDisplay;

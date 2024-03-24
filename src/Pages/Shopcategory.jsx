@@ -8,7 +8,7 @@ const Shopcategory = (props) =>{
     const {prod_data} = useContext(ShopContext)
     return(
         <div className="shop_banner">
-            <img src={props.banner} width={1300} alt="" />
+            <img style={{marginTop:"70px"}} src={props.banner} width={1300} alt="" />
             <div className="shop_index_sort">
                 Showing 1-12
             out of 36
