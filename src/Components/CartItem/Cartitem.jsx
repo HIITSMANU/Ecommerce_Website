@@ -112,7 +112,7 @@ const Cartitem = () => {
                                   </div>
                               </div>
                           
-                                    <button>PROCEED TO CHECK</button>
+                                    <button>PROCEED TO CHECKOUT</button>
                           </div>
                       
                                   <div className="cartitem_promocode">
