@@ -5,11 +5,13 @@ import 'react-toastify/dist/ReactToastify.css';
 import remove_icon from '../Assets/cart_cross_icon.png';
 import './CartItem.css';
 
-const Cartitem = () => {
-  const { prod_data, cartItem, removefromcart } = useContext(ShopContext);
+const CartItem = () => {
+  const { prod_data, cartItem, addTocart, removefromcart } = useContext(ShopContext);
   const [promoCode, setPromoCode] = useState('');
   const [promoApplied, setPromoApplied] = useState(false);
+  const [couponAppliedMessage, setCouponAppliedMessage] = useState('');
   const [subtotal, setSubtotal] = useState(0);
+  const [selectedSize, setSelectedSize] = useState(null); // New state for selected size preference
 
   useEffect(() => {
     let total = 0;
@@ -31,7 +33,8 @@ const Cartitem = () => {
       draggable: true,
       progress: undefined,
     });
-    const notify_good = (message) =>
+
+  const notify_good = (message) =>
     toast.success(message, {
       position: 'top-right',
       autoClose: 2000,
@@ -48,51 +51,64 @@ const Cartitem = () => {
   };
 
   const handleApplyPromoCode = () => {
-    if (promoCode === 'qwerty123') {
+    if (promoApplied) {
+      setCouponAppliedMessage('Coupon already applied');
+    } else if (promoCode === 'qwerty123') {
       setPromoApplied(true);
+      setCouponAppliedMessage('Coupon applied');
       notify_good('Coupon applied');
     } else {
       notify('Invalid promo code');
     }
   };
 
+  const handleQuantityChange = (productId, quantity) => {
+    if (quantity > cartItem[productId]) {
+      addTocart(productId, quantity - cartItem[productId]);
+    } else if (quantity < cartItem[productId]) {
+      removefromcart(productId, cartItem[productId]);
+    }
+  };
+
+  const handleSizeSelection = (size) => {
+    setSelectedSize(size);
+    // You can perform additional actions here if needed
+  };
+
   const cartIsEmpty = Object.values(cartItem).every((quantity) => quantity === 0);
 
-  // Calculate discount
   const discount = promoApplied ? subtotal * 0.2 : 0;
 
   return (
     <div>
       {cartIsEmpty ? (
-         <div className="main666">
-         <div>
-             <div className="u666">
-                 <div >
-                     <div className="v666">
-                         <div className="w666">
-                             <div className='gif' >
-                             <img src="https://assets.cltstatic.com/images/responsive/empty-trail-cart.gif"/>
-                             </div>
-                         </div>
-                         <div>
-                             <div className="x666">
-                                 There is nothing here!
-                             </div>
-                             <div className="y666">
-                             Let's do some retail therapy.
-                             </div>
-                         </div>
-                     </div>
-                     <div className="shopbutton">
-                     <a href='/' className="home1234">
-                         <button className="but5666" content="START SHOPPING">START SHOPPING</button>
-                     </a>
-                     </div>
-                 </div>
+        <div className="main666">
+        <div>
+          <div className="u666">
+            <div>
+              <div className="v666">
+                <div className="w666">
+                  <div className="gif">
+                    <img src="https://assets.cltstatic.com/images/responsive/empty-trail-cart.gif" />
+                  </div>
+                </div>
+                <div>
+                  <div className="x666">There is nothing here!</div>
+                  <div className="y666">Let's do some retail therapy.</div>
+                </div>
+              </div>
+              <div className="shopbutton">
+                <a href="/" className="home1234">
+                  <button className="but5666" content="START SHOPPING">
+                    START SHOPPING
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-             </div>
-         </div>
-     </div>
       ) : (
         <div className="cart_item">
           <div className="cart_item_format_main">
@@ -104,25 +120,29 @@ const Cartitem = () => {
             <p>Remove</p>
           </div>
           <hr />
-          {prod_data.map((e) => {
-            if (cartItem[e.id] > 0) {
+          {prod_data.map((product) => {
+            if (cartItem[product.id] > 0) {
               return (
-                <div key={e.id}>
-                  <div className="cartitem_format cart_item_format_main">
-                    <img src={e.image} alt="" className="cart_product_icon" />
-                    <p>{e.name}</p>
-                    <p>${e.new_price}</p>
-                    <button className="cart_quantity">{cartItem[e.id]}</button>
-                    <p>${e.new_price * cartItem[e.id]}</p>
+                <div key={product.id}>
+                   <div className="cartitem_format cart_item_format_main">
+                    <img src={product.image} alt="" className="cart_product_icon" />
+                    <p>{product.name}</p>
+                    <p>${product.new_price}</p>
+                    <input
+                      type="number"
+                      min="1"
+                      value={cartItem[product.id]}
+                      onChange={(event) => handleQuantityChange(product.id, parseInt(event.target.value))}
+                    />
+                    <p>${product.new_price * cartItem[product.id]}</p>
                     <img
                       src={remove_icon}
-                      onClick={() => {
-                        handleRemoveFromCart(e.id);
-                      }}
+                      onClick={() => handleRemoveFromCart(product.id)}
                       alt=""
                       className="remove"
                     />
                   </div>
+
                   <hr />
                 </div>
               );
@@ -130,7 +150,7 @@ const Cartitem = () => {
             return null;
           })}
           <div className="cartitems_down">
-            <div className="cart_totals">
+             <div className="cart_totals">
               <h1>Cart Totals</h1>
               <div>
                 <div className="cart_total_item">
@@ -150,7 +170,9 @@ const Cartitem = () => {
               </div>
               <button>PROCEED TO CHECKOUT</button>
             </div>
+
             <div className="cartitem_promocode">
+              <p>{couponAppliedMessage}</p>
               <p>If you have a promo code, enter it here:</p>
               <div className="cartitem_promobox">
                 <input
@@ -162,6 +184,20 @@ const Cartitem = () => {
                 <button onClick={handleApplyPromoCode}>Apply</button>
               </div>
             </div>
+            <div className="cartitem_size_preference">
+              <h2>Size Preference:</h2>
+              <div className="size_options">
+                {['S', 'M', 'L', 'XL'].map((size) => (
+                  <div
+                    key={size}
+                    className={`size_option ${selectedSize === size ? 'selected' : ''}`}
+                    onClick={() => handleSizeSelection(size)}
+                  >
+                    {size}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       )}
@@ -170,4 +206,4 @@ const Cartitem = () => {
   );
 };
 
-export default Cartitem;
+export default CartItem;
