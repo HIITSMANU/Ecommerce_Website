@@ -184,20 +184,7 @@ const CartItem = () => {
                 <button onClick={handleApplyPromoCode}>Apply</button>
               </div>
             </div>
-            <div className="cartitem_size_preference">
-              <h2>Size Preference:</h2>
-              <div className="size_options">
-                {['S', 'M', 'L', 'XL'].map((size) => (
-                  <div
-                    key={size}
-                    className={`size_option ${selectedSize === size ? 'selected' : ''}`}
-                    onClick={() => handleSizeSelection(size)}
-                  >
-                    {size}
-                  </div>
-                ))}
-              </div>
-            </div>
+            
           </div>
         </div>
       )}
