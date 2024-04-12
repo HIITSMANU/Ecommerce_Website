@@ -13,7 +13,7 @@ import women_banner from "./Components/Assets/banner_women.png"
 import kids_banner from "./Components/Assets/banner_kids.png"
 // import Footer from "./Components/Footer"
 function App() {
-  //these changes are done by sayeda
+  //these changes are done by manu
   return (
     <div>
       <BrowserRouter>
