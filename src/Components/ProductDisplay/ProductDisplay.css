@@ -68,6 +68,9 @@
     gap: 20px;
 
 }
+.product_display_size.selected {
+    background-color: lightblue;
+  }
 .product_display_sizes_chart div{
     padding: 12px 15px;
     background: rgb(236, 26, 61);
