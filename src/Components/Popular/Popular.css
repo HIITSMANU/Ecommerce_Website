@@ -1,29 +1,95 @@
-.popular{
+/* Popular.css */
+
+/* Original styles */
+.popular {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    /* gap:10px; */
     height: 90vh;
-    margin: 0px auto;
+    margin: 0 auto;
     margin-left: 80px;
-    /* text-align: center; */
-    
+    height: 100%;
 }
-.popular h1{
+
+.popular h1 {
     font-size: 40px;
     font-weight: 600;
     color: rgb(54, 53, 53);
 }
-.popular hr{
+
+.popular hr {
     width: 200px;
     height: 4px;
     border-radius: 10px;
     background: rgb(11, 11, 11);
 }
-.popular_item{
 
+.popular_item {
     display: flex;
     margin-top: 40px;
-    /* gap: 20px; */
+}
+
+/* Media Queries */
+@media only screen and (max-width: 1200px) {
+    .popular {
+        margin-left: 5%; /* Adjust margin for smaller screens */
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .popular {
+        margin-left: 3%; /* Adjust margin for smaller screens */
+    }
+
+    .popular h1 {
+        font-size: 32px; /* Decrease font size for smaller screens */
+    }
+
+    .popular_item {
+        flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+        justify-content: center; /* Center items horizontally */
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .popular {
+        margin-left: 2%; /* Adjust margin for smaller screens */
+    }
+
+    .popular h1 {
+        font-size: 28px; /* Decrease font size for smaller screens */
+    }
+
+    .popular hr {
+        width: 150px; /* Decrease width of hr for smaller screens */
+    }
+
+    .popular_item {
+        margin-top: 20px; /* Adjust margin-top for smaller screens */
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .popular h1 {
+        font-size: 24px; /* Further decrease font size for smaller screens */
+    }
+
+    .popular hr {
+        width: 120px; /* Further decrease width of hr for smaller screens */
+    }
+}
+
+@media only screen and (max-width: 280px) {
+    .popular {
+        margin-left: 0; /* Remove left margin for very small screens */
+    }
+
+    .popular h1 {
+        font-size: 20px; /* Further decrease font size for very small screens */
+    }
+
+    .popular hr {
+        width: 100px; /* Further decrease width of hr for very small screens */
+    }
 }

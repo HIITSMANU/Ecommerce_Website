@@ -1,32 +1,114 @@
-.new_collection{
+/* Newcollection.css */
+
+/* Original styles */
+.new_collection {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    /* gap:10px; */
     height: 100%;
-    margin: 0px auto;
+    margin: 0 auto;
     margin-left: 80px;
-    /* margin-top: 80px; */
-    /* text-align: center; */
     margin-bottom: 50px;
-    
 }
-.new_collection h1{
+
+.new_collection h1 {
     font-size: 40px;
     font-weight: 600;
     color: rgb(54, 53, 53);
     margin-top: 40px;
 }
-.new_collection hr{
+
+.new_collection hr {
     width: 200px;
     height: 10px;
     border-radius: 10px;
     background: rgb(11, 11, 11);
 }
-.collections{
+
+.collections {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(4, 1fr);
     margin-top: 30px;
     gap: 20px;
+}
+
+.collections img {
+    width: 100%; /* Ensure images do not exceed container width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Media Queries */
+@media only screen and (max-width: 1200px) {
+    .new_collection {
+        margin-left: 5%; /* Adjust margin for smaller screens */
+    }
+
+    .new_collection h1 {
+        font-size: 32px; /* Decrease font size for smaller screens */
+    }
+
+    .new_collection hr {
+        width: 150px; /* Decrease width of hr for smaller screens */
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .new_collection {
+        margin-left: 3%; /* Further adjust margin for smaller screens */
+    }
+
+    .new_collection h1 {
+        font-size: 28px; /* Further decrease font size for smaller screens */
+    }
+
+    .new_collection hr {
+        width: 120px; /* Further decrease width of hr for smaller screens */
+    }
+
+    .collections {
+        grid-template-columns: repeat(3, 1fr); /* Adjust grid columns for smaller screens */
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .new_collection {
+        margin-left: 2%; /* Further adjust margin for smaller screens */
+    }
+
+    .new_collection h1 {
+        font-size: 24px; /* Further decrease font size for smaller screens */
+    }
+
+    .new_collection hr {
+        width: 100px; /* Further decrease width of hr for smaller screens */
+    }
+
+    .collections {
+        grid-template-columns: repeat(2, 1fr); /* Adjust grid columns for smaller screens */
+        gap: 15px; /* Decrease gap between items for smaller screens */
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .new_collection {
+        margin-left: 1%; /* Further adjust margin for very small screens */
+    }
+
+    .new_collection h1 {
+        font-size: 20px; /* Further decrease font size for very small screens */
+    }
+
+    .new_collection hr {
+        width: 80px; /* Further decrease width of hr for very small screens */
+    }
+
+    .collections {
+        grid-template-columns: repeat(1, 1fr); /* Adjust grid columns for very small screens */
+        gap: 10px; /* Further decrease gap between items for very small screens */
+    }
+    .collections img {
+        max-width: 100%; /* Ensure images do not exceed container width */
+        height: auto; /* Maintain aspect ratio */
+    }
 }

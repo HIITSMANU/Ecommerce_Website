@@ -1,31 +1,37 @@
-.offer{
+/* Offers.css */
+
+/* Original styles */
+.offer {
     width: 65%;
     height: 60vh;
-    background: linear-gradient(180deg,pink 0%,rgb(244, 243, 243) 60%);
+    background: linear-gradient(180deg, pink 0%, rgb(244, 243, 243) 60%);
     margin: auto;
     display: flex;
-    padding: 0px 100px;
+    padding: 0 100px;
     margin-bottom: 100px;
     border-radius: 10px;
 }
-.offer_left{
+
+.offer_left {
     display: flex;
     flex: 1;
     flex-direction: column;
     justify-content: center;
-
 }
-.offer_left h1{
+
+.offer_left h1 {
     color: rgb(58, 57, 57);
     font-size: 60px;
     font-weight: 600;
 }
-.offer_left p{
+
+.offer_left p {
     color: black;
     font-size: 20px;
     font-weight: 700;
 }
-.offer_left button{
+
+.offer_left button {
     width: 250px;
     height: 40px;
     border-radius: 70px;
@@ -35,8 +41,73 @@
     font-weight: 500;
     cursor: pointer;
 }
-.offer_right{
+
+.offer_right {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 1200px) {
+    .offer {
+        width: 75%; /* Adjust width for smaller screens */
+        padding: 0 50px; /* Adjust padding for smaller screens */
+    }
+
+    .offer_left h1 {
+        font-size: 50px; /* Decrease font size for smaller screens */
+    }
+
+    .offer_left p {
+        font-size: 18px; /* Decrease font size for smaller screens */
+    }
+
+    .offer_left button {
+        width: 200px; /* Decrease button width for smaller screens */
+        height: 35px; /* Decrease button height for smaller screens */
+        font-size: 18px; /* Decrease font size for smaller screens */
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .offer {
+        width: 85%; /* Adjust width for even smaller screens */
+        padding: 0 20px; /* Adjust padding for even smaller screens */
+    }
+
+    .offer_left h1 {
+        font-size: 40px; /* Further decrease font size for smaller screens */
+    }
+
+    .offer_left p {
+        font-size: 16px; /* Further decrease font size for smaller screens */
+    }
+
+    .offer_left button {
+        width: 180px; /* Further decrease button width for smaller screens */
+        height: 30px; /* Further decrease button height for smaller screens */
+        font-size: 16px; /* Further decrease font size for smaller screens */
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .offer {
+        width: 95%; /* Adjust width for very small screens */
+        padding: 0 10px; /* Adjust padding for very small screens */
+    }
+
+    .offer_left h1 {
+        font-size: 30px; /* Further decrease font size for very small screens */
+    }
+
+    .offer_left p {
+        font-size: 14px; /* Further decrease font size for very small screens */
+    }
+
+    .offer_left button {
+        width: 150px; /* Further decrease button width for very small screens */
+        height: 25px; /* Further decrease button height for very small screens */
+        font-size: 14px; /* Further decrease font size for very small screens */
+    }
 }
