@@ -1,60 +1,91 @@
+/* Navbar CSS */
 .Navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
     padding: 5px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     background: white;
-    z-index: 1000; 
+    z-index: 1000;
 }
-.nav_logo{
+
+.nav_logo {
     display: flex;
     align-items: center;
     gap: 12px;
 }
-.nav_menu{
+
+.hamburger_menu {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger_menu .line {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+.nav_menu {
     display: flex;
-    align-items: center;
     list-style: none;
     gap: 25px;
     font-size: 19px;
     font-weight: 700;
 }
-.nav_menu li{
-   cursor: pointer;
-    
+
+.nav_menu.show_menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0px 2px 8px rgba(99, 99, 99, 0.2);
+    padding: 20px 0;
 }
-.nav_menu hr{
+
+.nav_menu li {
+    cursor: pointer;
+}
+
+.nav_menu hr {
     border: none;
     width: 80%;
     height: 2px;
     border-radius: 10px;
     background: rgb(244, 90, 90);
 }
-.nav_login_cart{
+
+.nav_login_cart {
     display: flex;
     align-items: center;
     gap: 30px;
 }
-.nav_login_cart button{
+
+.nav_login_cart button {
     width: 140px;
     height: 40px;
     border-radius: 70px;
     outline: none;
-    /* background: gray; */
     font-size: 17px;
     font-weight: 500;
     background: white;
     color: rgb(58, 57, 57);
-
 }
-.nav_login_cart button:active{
+
+.nav_login_cart button:active {
     background: rgb(241, 240, 240);
 }
-.nav_cart_count{
+
+.nav_cart_count {
     width: 22px;
     height: 22px;
     display: flex;
@@ -65,7 +96,43 @@
     border-radius: 14px;
     background: red;
     color: white;
-    border: 2px solid black;   
-
+    border: 2px solid black;
 }
 
+/* Media Query for Responsive Design */
+@media only screen and (max-width: 600px) {
+    .nav_menu {
+        display: none;
+    }
+
+    .hamburger_menu {
+        display: block;
+    }
+
+    .nav_login_cart.show_login_cart {
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: white;
+        box-shadow: 0px 2px 8px rgba(99, 99, 99, 0.2);
+        padding: 20px;
+        z-index: 1001;
+    }
+
+    .nav_login_cart.show_login_cart button {
+        margin-bottom: 10px;
+    }
+}
+
+.line1_open {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.line2_open {
+    opacity: 0;
+}
+
+.line3_open {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
