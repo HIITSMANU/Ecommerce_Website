@@ -33,6 +33,14 @@
     gap: 20px;
 }
 
+.cards{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    justify-content: center;
+    align-items: center;
+    margin-left: 3%;
+
+}
 .collections img {
     width: 100%; /* Ensure images do not exceed container width */
     height: auto; /* Maintain aspect ratio */
@@ -112,3 +120,5 @@
         height: auto; /* Maintain aspect ratio */
     }
 }
+
+

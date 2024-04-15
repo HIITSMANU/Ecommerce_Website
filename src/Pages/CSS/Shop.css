@@ -1,0 +1,27 @@
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.loading-image-container {
+    display: flex;
+    align-items: flex-end;
+}
+
+.loading-image {
+    width: 50px; /* Adjust width as needed */
+    height: auto;
+    margin: 0 5px; /* Adjust margin between images */
+    animation: wave 1.5s infinite;
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); /* Adjust wave height */
+    }
+}

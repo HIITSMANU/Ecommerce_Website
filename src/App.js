@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap/dist/js/bootstrap.bundle.min.js"
 import Navbar from './Components/Navbar/Navbar';
 import { BrowserRouter,Route,Routes } from 'react-router-dom';
 import Shop from './Pages/Shop';
@@ -11,6 +13,7 @@ import Footer from './Components/Footer/Footer';
 import men_banner from "./Components/Assets/banner_mens.png"
 import women_banner from "./Components/Assets/banner_women.png"
 import kids_banner from "./Components/Assets/banner_kids.png"
+import Login from './Pages/Login';
 // import Footer from "./Components/Footer"
 function App() {
   //these changes are done by manu
@@ -28,6 +31,7 @@ function App() {
           </Route>
           <Route path='/cart' element={<Cart/>}></Route>
           <Route path='/loginsignup' element={<LoginSignup/>}></Route>
+          <Route path='/login' element={<Login/>}></Route>
       </Routes> 
       <Footer/>
       </BrowserRouter>

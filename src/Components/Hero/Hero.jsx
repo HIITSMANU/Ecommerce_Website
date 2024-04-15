@@ -1,31 +1,25 @@
 import React from "react";
-import handicon from "../Assets/hand_icon.png"
-import arrow from "../Assets/arrow.png"
-import hero_img from "../Assets/hero_image.png"
-import "./Hero.css"
-const Hero = () =>{
-    return(
+import "./Hero.css";
+import video from "../Assets/Welcome-to-Cambridge.mp4"
+const Hero = () => {
+    return (
         <div className="hero">
-            <div className="hero_left">
-                <h2>NEW ARRIVALS ONLY</h2>
-                <div>
-                    <div className="hero_hand_icon">
-                        <p>NEW</p>
-                        <img src={handicon} alt="" />
-                    </div>
-                    <p>Collections</p>
+            <div className="hero_video">
+                <video src={video} autoPlay muted loop > 
+                </video>
+            </div>
+            <div className="hero_text">
+                <h2 className="text-white font-weight-bold">NEW ARRIVALS ONLY</h2>
+                <div className="text-white">
+                    <p>NEW Collections</p>
                     <p>For Everyone</p>
                 </div>
                 <div className="hero_latest">
-                    <div>Latest Collections</div>
-                    <img src={arrow} alt="" />
+                    <div className="text-white bgp">Latest Collections</div>
                 </div>
             </div>
-            <div className="hero_right">
-                <img src={hero_img} width={400} alt="" />
-            </div>
-
         </div>
-    )
-}
+    );
+};
+
 export default Hero;

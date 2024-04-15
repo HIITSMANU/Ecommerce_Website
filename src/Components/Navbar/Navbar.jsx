@@ -1,5 +1,4 @@
 import React, { useContext, useState, useEffect } from "react";
-import "./Navbar.css";
 import logo from "../Assets/logo.png";
 import cart_icon from "../Assets/cart_icon.png";
 import { Link } from "react-router-dom";
@@ -37,30 +36,44 @@ const Navbar = () => {
     };
 
     return (
-        <div className="Navbar">
-            <div className="nav_logo">
-                <img src={logo} alt="Shopper" />
-                <p>SHOPPER</p>
-            </div>
-            <div className="hamburger_menu" onClick={toggleMenu}>
-                <div className={`line ${showMenu ? "line1_open" : ""}`}></div>
-                <div className={`line ${showMenu ? "line2_open" : ""}`}></div>
-                <div className={`line ${showMenu ? "line3_open" : ""}`}></div>
-            </div>
-            <ul className={`nav_menu ${showMenu ? "show_menu" : ""}`}>
-                <li onClick={closeAll}><Link style={{ textDecoration: "none" }} to='/'>SHOP</Link></li>
-                <li onClick={closeAll}><Link style={{ textDecoration: "none" }} to='/mens'>MEN</Link></li>
-                <li onClick={closeAll}><Link style={{ textDecoration: "none" }} to='/womens'>WOMEN</Link></li>
-                <li onClick={closeAll}><Link style={{ textDecoration: "none" }} to='/kids'>KIDS</Link></li>
-            </ul>
-            <div className={`nav_login_cart ${showLogin || showCart ? "show_login_cart" : ""}`}>
-                <Link to='/loginsignup' onClick={toggleLogin}><button>Login</button></Link>
-                <Link to='/cart' onClick={toggleCart}><img src={cart_icon} alt="carts" /></Link>
-                <div className="nav_cart_icon">
-                    {cartCount > 0 && <div className="nav_cart_count">{cartCount}</div>}
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <div className="container">
+                <Link className="navbar-brand d-flex align-items-center" to="/">
+                    <img src={logo} alt="Shopper" />
+                    <span>SHOPPER</span>
+                </Link>
+                <button className="navbar-toggler" type="button" onClick={toggleMenu}>
+                    <span className={`navbar-toggler-icon ${showMenu ? "open" : ""}`}></span>
+                </button>
+                <div className={`collapse navbar-collapse ${showMenu ? "show" : ""}`}>
+                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li className="nav-item" onClick={closeAll}>
+                            <Link className="nav-link" to='/'>SHOP</Link>
+                        </li>
+                        <li className="nav-item" onClick={closeAll}>
+                            <Link className="nav-link" to='/mens'>MEN</Link>
+                        </li>
+                        <li className="nav-item" onClick={closeAll}>
+                            <Link className="nav-link" to='/womens'>WOMEN</Link>
+                        </li>
+                        <li className="nav-item" onClick={closeAll}>
+                            <Link className="nav-link" to='/kids'>KIDS</Link>
+                        </li>
+                    </ul>
+                </div>
+                <div className={`d-flex ${showLogin || showCart ? "show" : ""}`}>
+                    <Link to='/loginsignup' onClick={toggleLogin} className="me-3">
+                        <button className="btn btn-outline-dark">Login</button>
+                    </Link>
+                    <Link to='/cart' onClick={toggleCart}>
+                        <img src={cart_icon} alt="cart" className="cart-icon" />
+                    </Link>
+                    {cartCount > 0 && (
+                        <div className="nav_cart_count">{cartCount}</div>
+                    )}
                 </div>
             </div>
-        </div>
+        </nav>
     );
 };
 

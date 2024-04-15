@@ -17,10 +17,71 @@
     padding: 10px 20px;
     border-radius: 70px;
     border: 2px solid rgb(235, 34, 68);
+    margin-top: 10px;
 }
 .shopcategory_products{
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(3,1fr);
     row-gap: 50px;
     margin-top: 20px;
 }
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    padding: 16px;
+    border-radius: 10px;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+}
+
+.popup.green {
+    background-color: #4caf50; /* Green */
+}
+
+.popup.red {
+    background-color: #f44336; /* Red */
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content button {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+    margin: 4px;
+}
+
+.dropdown-content button:hover {
+    background-color: #17f707;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
